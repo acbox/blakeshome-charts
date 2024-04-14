@@ -48,15 +48,15 @@ spec:
       port: {{ .Values.service.port }}
       protocol: TCP
       targetPort: http
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
-      nodePort: {{.Values.service.nodePort}}
+{{ if (and (eq .Values.service.http.type "NodePort") (not (empty .Values.service.http.nodePort))) }}
+      nodePort: {{.Values.service.http.nodePort}}
 {{ end }}
     - name: rtmp
       port: 1935
       protocol: TCP
       targetPort: rtmp
-{{ if (and (eq .Values.service.type "NodePort") (not (empty .Values.service.nodePort))) }}
-      nodePort: {{.Values.service.nodePort}}
+{{ if (and (eq .Values.service.rtmp.type "NodePort") (not (empty .Values.service.rtmp.nodePort))) }}
+      nodePort: {{.Values.service.rtmp.nodePort}}
 {{ end }}
     - name: rtsp
       port: 8554
